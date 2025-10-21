@@ -1,5 +1,3 @@
     [build]
     functions = "netlify/functions"
 
-    [functions]
-    python_version = "3.9" # Or your desired Python version
