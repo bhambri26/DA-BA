@@ -456,4 +456,30 @@ PROJECTS_DATA = [
 ]
 
 async def seed_database():
-    print(\"Starting database seeding...\")\n    \n    # Clear existing data\n    await db.topics.delete_many({})\n    await db.projects.delete_many({})\n    \n    # Insert topics\n    if TOPICS_DATA:\n        result = await db.topics.insert_many(TOPICS_DATA)\n        print(f\"Inserted {len(result.inserted_ids)} topics\")\n    \n    # Insert projects\n    if PROJECTS_DATA:\n        result = await db.projects.insert_many(PROJECTS_DATA)\n        print(f\"Inserted {len(result.inserted_ids)} projects\")\n    \n    print(\"Database seeding completed!\")\n    print(f\"\\nTotal Topics: {len(TOPICS_DATA)}\")\n    print(f\"Total Projects: {len(PROJECTS_DATA)}\")\n    print(\"\\nCareer Paths Covered:\")\n    print(\"- Data Analyst\")\n    print(\"- Business Analyst\")\n    print(\"- Data Engineer\")\n    print(\"- Data Scientist\")\n\nif __name__ == \"__main__\":\n    asyncio.run(seed_database())
+    print("Starting database seeding...")
+    
+    # Clear existing data
+    await db.topics.delete_many({})
+    await db.projects.delete_many({})
+    
+    # Insert topics
+    if TOPICS_DATA:
+        result = await db.topics.insert_many(TOPICS_DATA)
+        print(f"Inserted {len(result.inserted_ids)} topics")
+    
+    # Insert projects
+    if PROJECTS_DATA:
+        result = await db.projects.insert_many(PROJECTS_DATA)
+        print(f"Inserted {len(result.inserted_ids)} projects")
+    
+    print("Database seeding completed!")
+    print(f"\nTotal Topics: {len(TOPICS_DATA)}")
+    print(f"Total Projects: {len(PROJECTS_DATA)}")
+    print("\nCareer Paths Covered:")
+    print("- Data Analyst")
+    print("- Business Analyst")
+    print("- Data Engineer")
+    print("- Data Scientist")
+
+if __name__ == "__main__":
+    asyncio.run(seed_database())
