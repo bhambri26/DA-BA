@@ -1,0 +1,10 @@
+[build]
+  # Netlify site base directory: set this site to use base directory "frontend"
+  command = "yarn install && yarn build"
+  publish = "build"
+
+# SPA fallback for client-side routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

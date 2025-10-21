@@ -1,0 +1,15 @@
+[build]
+  # Netlify site base directory: set this site to use base directory "backend"
+  # Netlify will install Python deps when it detects requirements.txt
+  command = "python -m pip install -r requirements.txt"
+  publish = "public"
+
+[functions]
+  directory = "netlify/functions"
+
+# Map /api/* to the function handler for nicer API URLs
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/handler/:splat"
+  status = 200
+  force = true
